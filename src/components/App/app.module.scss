@@ -1,11 +1,23 @@
 .Aviasales-app {
-	width: 100%;
-	height: 100%;
+	width: 960px;
 	background-color: #F3F7FA;
 	padding: 50px 0;
+	margin: 0 auto;
+
+	@media (max-width: 768px) {
+		width: 740px;
+	}
+
+	@media (max-width: 420px) {
+		width: 400px;
+	}
 
 	&__container{
 		display: flex;
 		justify-content: center;
+
+		@media (max-width: 420px) {
+			flex-direction: column;
+		 }
 	}
 }

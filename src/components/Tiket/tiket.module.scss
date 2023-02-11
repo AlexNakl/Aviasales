@@ -15,6 +15,14 @@
 									"a       b       c"
 									"d       e       f";
 		align-items: center;
+
+		@media (max-width: 768px) {
+			width: 500px;
+		}
+
+		@media (max-width: 420px) {
+			width: 400px;
+		}
 	}
 
 	&__price{

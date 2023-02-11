@@ -9,6 +9,14 @@
 	background-color: #fff;
 	text-transform: uppercase;
 	border: 1px solid #dfe5ec;
+
+	@media (max-width: 768px) {
+		width: 166px;
+	 }
+
+	@media (max-width: 420px) {
+		width: 133px;
+	 }
  
 	&:first-child {
 	  border-radius: 5px 0 0 5px;

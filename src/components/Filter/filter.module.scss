@@ -6,6 +6,17 @@
 	border-radius: 5px;
 	box-shadow: 0px 2px 8px rgba(0, 0, 0, 0.1);
 	margin-right: 17px;
+
+	@media (max-width: 768px) {
+		width: 215px;
+	}
+
+	@media (max-width: 420px) {
+		width: 400px;
+		height: 100%;
+		margin: 0;
+		margin-bottom: 20px;
+	}
 }
 
 .title {
@@ -17,6 +28,10 @@
 	text-transform: uppercase;
 	color: #4A4A4A;
 	margin-bottom: 20px;
+
+	@media (max-width: 420px) {
+		text-align: center;
+	 }
 }
 
 .filter-list {
@@ -26,9 +41,22 @@
 	line-height: 20px;
 	color: #4A4A4A;
 
+	@media (max-width: 420px) {
+		display: grid;
+		grid-template-columns: repeat(2, 1fr);
+		align-items: center;
+	}
+
+
 	&__item{
 		margin-left: 30px;
 		margin-bottom: 20px;
+
+		@media (max-width: 420px) {
+			margin-right: 20px;
+			margin-bottom: 10px;
+			margin-top: 10px;
+		}
 	}
 }
 
