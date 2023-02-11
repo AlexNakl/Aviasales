@@ -1,21 +1,28 @@
-import React, { Component } from 'react';
-import './app.css';
+import React from 'react';
 
-export default class App extends Component {
-  constructor() {
-    super();
-       this.state = {
-      
-    };
-  }
+import Header from '../Header';
+import Filter from '../Filter';
+import Tabs from '../Tabs';
+import TiketsList from '../TiketsList';
+import ShowMore from '../ShowMore';
+// import ShowMore from '../ShowMore';
 
-  render() {
-    const {
-      
-    } = this.state;
+import classes from './app.module.scss';
 
-    return (
-      
-    );
-  }
+function App() {
+  return (
+    <section className={classes['Aviasales-app']}>
+      <Header />
+      <div className={classes['Aviasales-app__container']}>
+        <Filter />
+        <main className={classes['Aviasales-app__main']}>
+          <Tabs />
+          <TiketsList />
+          <ShowMore />
+        </main>
+      </div>
+    </section>
+  );
 }
+
+export default App;

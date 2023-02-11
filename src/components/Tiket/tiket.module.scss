@@ -1,0 +1,77 @@
+.Tiket{
+
+	&__container{
+		width: 502px;
+		height: 184px;
+		margin-bottom: 20px;
+		padding: 20px;
+		background-color: white;
+		box-shadow: 0px 2px 8px rgba(0, 0, 0, 0.1);
+		border-radius: 5px;
+		display: grid;
+		grid-template-columns: repeat(3, 1fr);
+		grid-template-areas:
+									"price   price   logo"
+									"a       b       c"
+									"d       e       f";
+		align-items: center;
+	}
+
+	&__price{
+		font-style: normal;
+		font-weight: 600;
+		font-size: 24px;
+		line-height: 24px;
+		color: #2196F3;
+		text-transform: uppercase;
+		grid-area: price;
+	}
+
+	&__logo{
+		justify-content: center;
+		grid-area: logo;
+		justify-self: end;
+	}
+
+	&__cell{
+
+		&__1{
+			grid-area: a;
+		}
+		&__2{
+			grid-area: b;
+		}
+		&__3{
+			grid-area: c;
+		}
+		&__4{
+			grid-area: d;
+		}
+		&__5{
+			grid-area: e;
+		}
+		&__6{
+			grid-area: f;
+		}
+		
+	}
+
+	&__titel{
+		font-style: normal;
+		font-weight: 600;
+		font-size: 12px;
+		line-height: 18px;
+		letter-spacing: 0.5px;
+		text-transform: uppercase;
+		color: #A0B0B9;
+	}
+
+	&__data{
+		font-style: normal;
+		font-weight: 600;
+		font-size: 14px;
+		line-height: 21px;
+		color: #4A4A4A;		
+	}
+}
+

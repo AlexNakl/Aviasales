@@ -1,0 +1,26 @@
+.tab {
+	height: 50px;
+	width: 168px;
+	cursor: pointer;
+	font-size: 12px;
+	font-weight: 600;
+	line-height: 20px;
+	letter-spacing: 0.5px;
+	background-color: #fff;
+	text-transform: uppercase;
+	border: 1px solid #dfe5ec;
+ 
+	&:first-child {
+	  border-radius: 5px 0 0 5px;
+	}
+ 
+	&:last-child {
+	  border-radius: 0 5px 5px 0;
+	}
+ 
+	&--active {
+	  color: #fff;
+	  border: 1px solid #2196f3;
+	  background-color: #2196f3;
+	}
+ }

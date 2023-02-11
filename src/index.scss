@@ -1,0 +1,57 @@
+@import url('https://fonts.googleapis.com/css2?family=Open+Sans:wght@400;600&display=swap');
+
+html {
+	box-sizing: border-box;
+}
+
+html,
+body,
+form,
+h3,
+ul,
+p,
+button {
+	margin: 0;
+	padding: 0;
+}
+
+body{
+	font-family: 'Open Sans';
+}
+
+button {
+	border: 0;
+	background: none;
+	font-size: 100%;
+	vertical-align: baseline;
+	font-family: inherit;
+	font-weight: inherit;
+	color: inherit;
+	-webkit-appearance: none;
+	appearance: none;
+	-webkit-font-smoothing: antialiased;
+	-moz-osx-font-smoothing: grayscale;
+}
+
+:focus {
+	outline: 0;
+}
+
+.hidden {
+	display: none;
+}
+
+*,
+*::before,
+*::after {
+	box-sizing: inherit;
+}
+
+ul{
+	list-style-type: none;
+}
+
+a {
+	text-decoration: none;
+	color: inherit;
+}
