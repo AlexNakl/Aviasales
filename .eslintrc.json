@@ -55,7 +55,8 @@
 			],
 			"newlines-between": "always"
 		 }
-	  ]
+	  ],
+	  "default-param-last": "off"
 	},
 	"settings": {
 	  "import/resolver": {

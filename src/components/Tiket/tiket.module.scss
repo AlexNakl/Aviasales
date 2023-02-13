@@ -17,11 +17,12 @@
 		align-items: center;
 
 		@media (max-width: 768px) {
-			width: 500px;
+			width: 420px;
 		}
 
 		@media (max-width: 420px) {
-			width: 400px;
+			width: 340px;
+			grid-template-columns: 1.4fr 1fr 1.4fr;
 		}
 	}
 
