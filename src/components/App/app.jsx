@@ -5,6 +5,7 @@ import Filter from '../Filter';
 import Tabs from '../Tabs';
 import TiketsList from '../TiketsList';
 import ShowMore from '../ShowMore';
+import Spinner from '../Spinner';
 // import ShowMore from '../ShowMore';
 
 import classes from './app.module.scss';
@@ -17,6 +18,7 @@ function App() {
         <Filter />
         <main className={classes['Aviasales-app__main']}>
           <Tabs />
+          <Spinner />
           <TiketsList />
           <ShowMore />
         </main>

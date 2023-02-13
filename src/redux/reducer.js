@@ -1,6 +1,8 @@
-import { FILTER_TICKETS } from './actions';
+/* eslint-disable no-fallthrough */
+import { GET_TICKETS, FILTER_TICKETS, SWITCHING_TABS } from './actions';
 
 const initialState = {
+  loading: true,
   tickets: [],
   tabs: [
     {
@@ -91,12 +93,18 @@ const reducer = (state = initialState, action) => {
           ),
         };
       }
-
-      break;
+    case GET_TICKETS:
+      return { ...state, tickets: [...state.tickets, ...action.payload] };
+    case SWITCHING_TABS:
+      return {
+        ...state,
+        tabs: state.tabs.map((tab) =>
+          action.payload === tab.id ? { ...tab, active: true } : { ...tab, active: false }
+        ),
+      };
     default:
       return state;
   }
-  return state;
 };
 
 export default reducer;

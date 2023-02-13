@@ -1,5 +1,5 @@
 export default class AsApiServices {
-  baseUrl = new URL('https://front-test.dev.aviasales.ru');
+  baseUrl = new URL('https://aviasales-test-api.kata.academy');
 
   searchId = null;
 
@@ -23,18 +23,11 @@ export default class AsApiServices {
     const response = await fetch(urlGetTickets);
 
     if (!response.ok) {
-      throw new Error(`Could not fetch ${urlGetTickets}, received ${response.status}`);
+      throw new Error(`${response.status}`);
     }
 
     const body = await response.json();
 
     return body;
-  }
-
-  async recursiveQueryGetTickets() {
-    const response = await this.getTickets();
-    if (!response.stop) {
-      this.recursiveQueryGetTickets();
-    }
   }
 }

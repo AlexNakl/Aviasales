@@ -1,9 +1,12 @@
 import React from 'react';
+import { useDispatch } from 'react-redux';
+
+import { switchingTabs } from '../../redux/actionCreators';
 
 import classes from './tab.module.scss';
 
-function Tab({ isActive }) {
-  const onClick = () => {};
+function Tab({ isActive, label, id }) {
+  const dispatch = useDispatch();
   let clazz = classes.tab;
 
   if (isActive) {
@@ -11,8 +14,8 @@ function Tab({ isActive }) {
   }
 
   return (
-    <button onClick={onClick} className={clazz} type="button">
-      Самый дешевый
+    <button onClick={!isActive ? () => dispatch(switchingTabs(id)) : () => {}} className={clazz} type="button">
+      {label}
     </button>
   );
 }

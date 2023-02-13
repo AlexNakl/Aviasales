@@ -2,11 +2,12 @@ import React from 'react';
 import { useSelector, useDispatch } from 'react-redux';
 
 import { filterTickets } from '../../redux/actionCreators';
+import { getFilters } from '../../redux/selectors';
 
 import classes from './filter.module.scss';
 
 function Filter() {
-  const filters = useSelector((state) => state.filters);
+  const filters = useSelector(getFilters);
   const dispatch = useDispatch();
 
   return (
