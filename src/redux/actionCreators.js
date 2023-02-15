@@ -40,11 +40,10 @@ export const getTickets = () => async (dispatch) => {
         dispatch({ type: GET_TICKETS, payload: response.tickets });
       }
     } catch (err) {
-      console.error(err, err.message);
-
       if (err.message >= 500) {
         recursiveQueryGetTickets();
       } else {
+        console.error(err, err.message);
         dispatch(updateError({ active: true, message: `Код ${err.message}: Что-то пошло не так.` }));
         dispatch({ type: SHOW_LOADING, payload: false });
       }
