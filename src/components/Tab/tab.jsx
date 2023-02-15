@@ -1,4 +1,5 @@
 import React from 'react';
+import PropTypes from 'prop-types';
 import { useDispatch } from 'react-redux';
 
 import { switchingTabs } from '../../redux/actionCreators';
@@ -19,5 +20,17 @@ function Tab({ isActive, label, id }) {
     </button>
   );
 }
+
+Tab.defaultProps = {
+  id: 0,
+  label: '',
+  isActive: false,
+};
+
+Tab.propTypes = {
+  id: PropTypes.number,
+  label: PropTypes.string,
+  isActive: PropTypes.bool,
+};
 
 export default Tab;

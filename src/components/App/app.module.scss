@@ -20,4 +20,20 @@
 			flex-direction: column;
 		 }
 	}
+	&__main{
+		width: 502px;
+		
+		@media (max-width: 768px) {
+			width: 420px;
+		}
+	
+		@media (max-width: 420px) {
+			width: 340px;
+		}
+	}
+}
+
+.ant-alert-error{
+	width: 100%;
+	margin-bottom: 20px;
 }

@@ -1,23 +1,41 @@
 /* eslint-disable no-fallthrough */
-import { GET_TICKETS, FILTER_TICKETS, SWITCHING_TABS } from './actions';
+import {
+  GET_TICKETS,
+  FILTER_TICKETS,
+  SWITCHING_TABS,
+  SHOW_MORE,
+  SHOW_LOADING,
+  PUT_QUANTITY_TICKETS,
+  ERROR_STATUS,
+} from './actions';
 
 const initialState = {
+  quantityTickets: 0,
+  quantityAllTickets: 0,
+  displayTickets: 5,
+  error: {
+    active: false,
+    message: '',
+  },
   loading: true,
   tickets: [],
   tabs: [
     {
       id: 1,
       label: 'Самый дешёвый',
+      code: 'price',
       active: true,
     },
     {
       id: 2,
       label: 'Самый быстрый',
+      code: 'fastest',
       active: false,
     },
     {
       id: 3,
       label: 'Оптимальный',
+      code: 'optimal',
       active: false,
     },
   ],
@@ -35,7 +53,7 @@ const initialState = {
     {
       id: 3,
       label: '1 пересадка',
-      checked: true,
+      checked: false,
     },
     {
       id: 4,
@@ -94,7 +112,11 @@ const reducer = (state = initialState, action) => {
         };
       }
     case GET_TICKETS:
-      return { ...state, tickets: [...state.tickets, ...action.payload] };
+      return {
+        ...state,
+        tickets: [...state.tickets, ...action.payload],
+        quantityAllTickets: state.quantityAllTickets + action.payload.length,
+      };
     case SWITCHING_TABS:
       return {
         ...state,
@@ -102,6 +124,14 @@ const reducer = (state = initialState, action) => {
           action.payload === tab.id ? { ...tab, active: true } : { ...tab, active: false }
         ),
       };
+    case SHOW_MORE:
+      return { ...state, displayTickets: state.displayTickets + action.payload };
+    case SHOW_LOADING:
+      return { ...state, loading: action.payload };
+    case PUT_QUANTITY_TICKETS:
+      return { ...state, quantityTickets: action.payload };
+    case ERROR_STATUS:
+      return { ...state, error: action.payload };
     default:
       return state;
   }

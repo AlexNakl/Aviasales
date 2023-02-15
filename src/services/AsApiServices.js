@@ -5,11 +5,10 @@ export default class AsApiServices {
 
   async getSearchId() {
     const urlSearchId = new URL('/search', this.baseUrl);
-
     const response = await fetch(urlSearchId);
 
     if (!response.ok) {
-      throw new Error(`Could not fetch ${urlSearchId}, received ${response.status}`);
+      throw new Error(`Код ${response.status}: Не удалось получить ID. Пожалуйста перезагрузите страницу.`);
     }
     const body = await response.json();
 
@@ -18,8 +17,8 @@ export default class AsApiServices {
 
   async getTickets() {
     const urlGetTickets = new URL('/tickets', this.baseUrl);
-    urlGetTickets.searchParams.append('searchId', this.searchId);
 
+    urlGetTickets.searchParams.append('searchId', this.searchId);
     const response = await fetch(urlGetTickets);
 
     if (!response.ok) {
