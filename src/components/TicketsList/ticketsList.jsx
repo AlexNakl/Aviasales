@@ -1,6 +1,5 @@
-import React, { useEffect } from 'react';
+import React, { useEffect, useMemo } from 'react';
 import { useSelector, useDispatch } from 'react-redux';
-import { v4 as uuid } from 'uuid';
 
 import Ticket from '../Ticket';
 import { getTickets, putQuantityTickets } from '../../redux/actionCreators';
@@ -16,7 +15,10 @@ function TicketsList() {
   const filters = useSelector(getFilters);
   const dispatch = useDispatch();
 
-  const resultTicketsList = filterTicketsList(sortTicketsList(tickets, tabs), filters);
+  const resultTicketsList = useMemo(
+    () => filterTicketsList(sortTicketsList(tickets, tabs), filters),
+    [tickets, tabs, filters]
+  );
 
   useEffect(() => {
     dispatch(getTickets());
@@ -24,13 +26,13 @@ function TicketsList() {
 
   useEffect(() => {
     dispatch(putQuantityTickets(resultTicketsList.length));
-  }, [resultTicketsList]);
+  }, [dispatch, tickets, filters]);
 
   return (
     <ul className={classes['Tickets-list']}>
       {resultTicketsList.slice(0, displayTickets).map((ticket) => (
         <Ticket
-          key={uuid()}
+          key={`${ticket.price}${ticket.carrier}${ticket.segments[0].stops}${ticket.segments[1].stops}`}
           price={ticket.price}
           carrier={ticket.carrier}
           date={ticket.segments[0].date}

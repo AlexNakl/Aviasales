@@ -1,6 +1,5 @@
 const sortTicketsList = (tickets, tabs) => {
   const activeTab = tabs.find((tab) => tab.active === true);
-
   switch (activeTab.code) {
     case 'price':
       return [...tickets].sort((a, b) => a.price - b.price);
@@ -23,7 +22,6 @@ const sortTicketsList = (tickets, tabs) => {
 
 const filterTicketsList = (tickets, filters) => {
   const activefilters = filters.filter((filter) => filter.checked === true);
-
   return [...tickets].filter((ticket) => {
     switch (ticket.segments[0].stops.length) {
       case 0: // 'Без пересадок'

@@ -11,8 +11,9 @@ export default class AsApiServices {
       throw new Error(`Код ${response.status}: Не удалось получить ID. Пожалуйста перезагрузите страницу.`);
     }
     const body = await response.json();
-
-    this.searchId = body.searchId;
+    if (this.searchId === null) {
+      this.searchId = body.searchId;
+    }
   }
 
   async getTickets() {
